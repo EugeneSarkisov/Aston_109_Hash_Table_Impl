@@ -4,8 +4,8 @@ import java.util.Objects;
 
 public class MyNode<K, V> {
     private final int hash;
-    private  K key;
-    private  V value;
+    private final K key;
+    private V value;
     private MyNode<K, V> next;
 
     public MyNode(int hash, K key, V value, MyNode<K, V> next) {
@@ -21,10 +21,6 @@ public class MyNode<K, V> {
 
     public K getKey() {
         return key;
-    }
-
-    public void setKey(K key) {
-        this.key = key;
     }
 
     public V getValue() {
@@ -55,7 +51,5 @@ public class MyNode<K, V> {
     public int hashCode() {
         return Objects.hashCode(key) ^ Objects.hashCode(value);
     }
-
-
 
 }

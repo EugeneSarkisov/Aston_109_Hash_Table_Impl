@@ -18,8 +18,8 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
         int index = getIndex(hash(key));
         if (!data[index].getKey().equals(key)) {
             MyNode<K, V> current = data[index];
-            while (current != null){
-                if(current.getKey().equals(key)){
+            while (current != null) {
+                if (current.getKey().equals(key)) {
                     return current.getValue();
                 } else {
                     current = current.getNext();
@@ -85,16 +85,16 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
         return null;
     }
 
-    public static int hash(Object key) {
+    private static int hash(Object key) {
         int h;
         return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
     }
 
-    public static int getIndex(int hash) {
+    private static int getIndex(int hash) {
         return hash & (capacity - 1);
     }
 
-    public void resize() {
+    private void resize() {
         MyNode<K, V>[] newData = new MyNode[data.length + DEFAULT_INIT_CAPACITY];
         MyNode<K, V>[] tempNodeArray = data;
         data = newData;
@@ -110,5 +110,6 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
             }
         }
     }
+
 }
 
